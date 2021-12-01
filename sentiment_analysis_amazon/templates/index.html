@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html >
+<body  align="center" style="background-color:powderblue;">
+<head>
+  <meta charset="UTF-8">
+  <title>Model Deployment</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        font-family: 'Tangerine', serif;
+        font-size: 28px;
+      }
+    </style>
+
+
+</head>
+
+<style>
+.submit{
+  border-color: #2196F3;
+  color: dodgerblue;
+}
+</style>
+
+<body>
+	<h1 style="text-align:center">Recomendation System</h1>
+ <div class="login" style="background-color:coral;">
+
+
+    <form align="center" action="{{ url_for('recommend')}}"method="post">
+    	<input type="text" style="text-align:center" name="User_Name" placeholder="Username" required="required" />
+        <br>
+
+
+
+        <button align="center" class ="submit" type="submit" class="btn btn-primary btn-block btn-large">Recommend</button>
+    </form>
+
+   <br>
+   <br>
+
+     <table>
+        <thead>
+
+          <tr>
+            {% for col in column_names %}
+            <th>
+
+              {{col}}
+
+            </th>
+            {% endfor %}
+          </tr>
+
+        </thead>
+        <tbody>
+          {% for row in row_data %}
+          <tr>
+            {% for col, row_ in zip(column_names, row) %}
+            <td>{{row_}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+
+
+        </tbody>
+
+      </table>
+
+
+ </div>
+
+
+</body>
+</html>
